@@ -1,0 +1,26 @@
+<nav class="navbar" style="background-color: #7a1705;">
+  <a class="navbar-brand"  sytle="color:white">
+  <img  style="border-right: 1px solid white; height:50px " src="assets/images/trident-large.png">
+  <span class="navbar-brand ml-2" style="color:white">Aviation Incidents</span>
+</a>
+  
+<div *ngIf="userIsAuthenticated">
+  <mat-form-field   style="color:white;width:40px;">
+    <mat-label style="color:white">
+      <i class="fas fa-user-circle"></i>
+    </mat-label>
+    <mat-select >
+      <mat-option>My Account</mat-option>
+      <mat-option (click)="logout()">Sign Out</mat-option>
+      
+    </mat-select>
+    
+  </mat-form-field>
+</div>
+
+
+ 
+  <!-- <img   src="../assets/images/Wipro_Logo_RGB_PNG.png1-SMALL white.png"> -->
+  
+
+</nav>

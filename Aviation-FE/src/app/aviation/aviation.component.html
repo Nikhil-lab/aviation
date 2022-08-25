@@ -1,0 +1,124 @@
+<app-header></app-header>
+
+
+
+<div style="margin:2%">
+
+    <div *ngIf="!viewTable" > 
+    <div class="row mb-2"><div class="spacer"></div><button class="btn btn-custom-primary z-depth mb-2" (click)="displayTable()">Incidents Table</button></div>
+
+
+    <mat-card class="z-depth">
+        <mat-card-content>
+          <div class="header"> <h1>Welcome to the Aviation Incidents Dashboard !</h1></div>
+              <hr>
+              <div class="d-flex flex-column justify-content-center align-items-center ">
+                  <div class="mt-5" class="card-values" >
+                    <h3>Safety, especially in aviation, is paramount. As per the Risk Report from Allianz Global, there were over 29,000 recorded deaths between 1959 and 2017. </h3>
+
+                    <h3>Aviation Accident database looks into the trend of airline accidents over a period of 60 years and captures details about the casualties, location of the incident and aircraft state. With this application, you will be able to understand the total number of accidents, casualties recorded in the North American region. With lucid data visualization, you can explore the emerging trend of the accidents over the last 60 years and look into the model of the aircraft which has seen the most incidents.</h3>
+                      
+                  <h3> You can also explore the incident in detail with our incident review. You can review our data repository, add any new incidents or modify incidents of interest.</h3>
+                      
+                    <h3>Aviation Accident Database application is useful for airline management, flight controllers, policy makers and for all prospective air travelers.</h3>
+                  </div>
+                  <div class="mt-4 mb-2" style="color:grey;font-size:30px"></div>  
+              </div>
+      
+       </mat-card-content>
+    </mat-card>
+
+    <div class="row mt-5">
+
+        <div class="col-6">
+          <mat-card class="z-depth" >
+            <mat-card-content>
+              <div class="header"> Total number of accidents</div>
+              <hr>
+              <div class="d-flex flex-column justify-content-center align-items-center ">
+                  <div class="mt-5" class="card-values" >{{totalAccidents}}</div>
+                  <div class="mt-4 mb-2" style="color:grey;font-size:30px"></div>  
+              </div>
+          
+           </mat-card-content>
+         </mat-card>
+         </div>
+    
+         <div class="col-6">
+          <mat-card class="z-depth"  >
+            <mat-card-content>
+              <div class="header"> Total number of accidents</div>
+              <hr>
+              <div class="d-flex flex-column justify-content-center align-items-center ">
+                <div class="mt-5" class="card-values" >{{totalAircrafts}}</div>
+                <div class="mt-4 mb-2" style="color:grey;font-size:30px"></div>
+            </div>
+             </mat-card-content>
+         </mat-card>
+         </div>
+    </div>
+
+    <div class="row mt-5">
+
+        <div class="col-6">
+          <mat-card class="z-depth">
+            <mat-card-content>
+              <div class="header"> Total number of fatal injuries</div>
+              <hr>
+              <div class="d-flex flex-column justify-content-center align-items-center ">
+                  <div class="mt-5" class="card-values" >
+                    {{totalFatalInj}}
+                      </div>
+                  <div class="mt-4 mb-2" style="color:grey;font-size:30px"></div>  
+              </div>
+          
+           </mat-card-content>
+         </mat-card>
+         </div>
+    
+         <div class="col-6">
+          <mat-card class="z-depth"  >
+            <mat-card-content>
+              <div class="header"> Total number of serious injuries</div>
+              <hr>
+              <div class="d-flex flex-column justify-content-center align-items-center ">
+                <div class="mt-5" class="card-values" >{{totalSeriousInj}}</div>
+                <div class="mt-4 mb-2" style="color:grey;font-size:30px"></div>
+            </div>
+             </mat-card-content>
+         </mat-card>
+         </div>
+    </div>
+
+
+    <mat-card class="mt-5">
+        <app-pie-chart [pieChartLabels]="pieLables" [pieChartData]="pieValues"></app-pie-chart>
+    </mat-card>
+
+    <mat-card class="mt-5">
+      <app-bar-chart *ngIf="barChartData" [barChartData]="barChartData" ></app-bar-chart>
+    </mat-card>
+
+
+
+
+    <mat-card class="mt-5" >
+        <mat-card-content>
+          <app-line-chart *ngIf="lineChartData" [lineChartData]="lineChartData" [lineChartLabels]="lineChartLabels"> </app-line-chart>
+    
+    </mat-card-content>
+    </mat-card>
+
+    </div>
+
+
+    <div *ngIf="viewTable">
+            <app-aviation-table (goBack)= "viewTable = false" > </app-aviation-table>
+    </div>
+
+
+    
+
+
+
+</div>

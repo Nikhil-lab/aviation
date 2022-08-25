@@ -1,0 +1,17 @@
+.fas{
+    color:white;
+    font-size:20px;
+}
+
+.mat-select-arrow {
+    color: white !important;
+}
+
+.mat-form-field-infix {
+    display: block;
+    position: relative;
+    flex: auto;
+    min-width: 0;
+    width: 100px;
+}
+ 

@@ -1,0 +1,10 @@
+.card-values{
+    color:#4D4F5C;
+    font-size:50px;
+}
+
+.z-depth:hover .card-values{
+    color:#7a1705;
+    font-size:50px;
+}
+

@@ -1,0 +1,131 @@
+<mat-toolbar >
+    <mat-toolbar-row>
+      <span>{{crud}} {{type}} </span>
+      <span class="spacer"></span>
+      <mat-icon fontSet="fas" [mat-dialog-close] fontIcon="fa-times"></mat-icon>
+  
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+  <div *ngIf="crud != 'Details'" mat-dialog-content class="mt-2" style="margin:auto">
+    <label class="cust-grey">Note: * marked fields are mandatory</label>
+    <div>
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>* Event ID</mat-label>
+            <input matInput placeholder="w-ally" [formControl]="eventIdFormControl" [errorStateMatcher]="eventIdMatcher">
+                <mat-error *ngIf="eventIdFormControl.hasError('required')">
+              Event ID is <strong>required</strong>
+              </mat-error>
+          </mat-form-field>
+          
+    </div>
+
+    <div>
+      <mat-form-field appearance="outline" class="full-width">
+          <mat-label>* Event Date</mat-label>
+          <input matInput placeholder="YYYY-MM-DD" [formControl]="eventDateFormControl" [errorStateMatcher]="eventDateMatcher">
+            <mat-error *ngIf="eventDateFormControl.hasError('required')">
+            Event Date is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+
+        <!-- <mat-form-field appearance="fill">
+          <mat-label>Choose a date</mat-label>
+          <input matInput formControl]="eventDateFormControl" [errorStateMatcher]="eventDateMatcher" [matDatepicker]="picker">
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field> -->
+        
+  </div>
+
+  <div>
+    <mat-form-field appearance="outline" class="full-width">
+        <mat-label>* Location</mat-label>
+        <input matInput placeholder="w-ally" [formControl]="locationFormControl" [errorStateMatcher]="locationMatcher">
+        <mat-error *ngIf="locationFormControl.hasError('required')">
+          Location is <strong>required</strong>
+          </mat-error>
+      </mat-form-field>
+      
+ </div>
+
+ <div>
+    <mat-form-field appearance="outline" class="full-width">
+        <mat-label>* Description</mat-label>
+        <input matInput placeholder="w-ally" [formControl]="descriptionFormControl" [errorStateMatcher]="descriptionMatcher">
+        <mat-error *ngIf="descriptionFormControl.hasError('required')">
+          Location is <strong>required</strong>
+          </mat-error>
+      </mat-form-field>  
+ </div>
+
+ <div>
+  <mat-form-field appearance="outline" class="full-width">
+      <mat-label>* Injury Severity</mat-label>
+      <input matInput placeholder="Fatal/Non-Fatal" [formControl]="injurySeverityFormControl" [errorStateMatcher]="injurySeverityMatcher">
+      <mat-error *ngIf="injurySeverityFormControl.hasError('required')">
+        Injury Severity is <strong>required</strong>
+        </mat-error>
+    </mat-form-field>  
+</div>
+
+<div>
+  <mat-form-field appearance="outline" class="full-width">
+      <mat-label>* Aircraft Damage</mat-label>
+      <input matInput placeholder="Substantial" [formControl]="aircraftDamageFormControl" [errorStateMatcher]="aircraftDamageMatcher">
+      <mat-error *ngIf="aircraftDamageFormControl.hasError('required')">
+        Aircraft Damage is <strong>required</strong>
+        </mat-error>
+    </mat-form-field>  
+</div>
+
+<div>
+  <mat-form-field appearance="outline" class="full-width">
+      <mat-label>* Total Fatal Injuries</mat-label>
+      <input matInput placeholder="w-ally" [formControl]="totalFatalInjuriesFormControl" [errorStateMatcher]="totalFatalInjuriesMatcher">
+      <mat-error *ngIf="totalFatalInjuriesFormControl.hasError('required')">
+        Total Fatal Injuries is <strong>required</strong>
+        </mat-error>
+    </mat-form-field>  
+</div>
+
+
+
+  </div>
+
+  <div *ngIf="crud == 'Details'" mat-dialog-content class="mt-2" style="margin:auto">
+
+    <h3><b>Event Id : </b>{{data.EventId}}</h3>
+
+    <h3><b>Event Date : </b>{{data.EventDate}}</h3>
+
+    <h3><b>Location : </b>{{data.Location}}</h3>
+
+    <h3><b>InjurySeverity : </b>{{data.InjurySeverity}}</h3>
+
+    <h3><b>Aircraft Damage : </b>{{data.AircraftDamage}}</h3>
+
+    <h3><b>Make : </b>{{data.Make}}</h3>
+    
+    <h3><b>Total Fatal Injuries: </b>{{data.TotalFatalInjuries}}</h3>
+
+    <h3><b>Total Serious Injuries: </b>{{data.TotalSeriousInjuries}}</h3>
+
+    <h3><b>WeatherCondition : </b>{{data.WeatherCondition}}</h3>
+    
+    <h3><b>Broad phase of flight : </b>{{data.Broadphaseofflight}}</h3>
+
+    <h3><b>Description : </b>{{data.Description}}</h3>
+
+  </div>
+
+  <div mat-dialog-actions >
+  
+    <div class="spacer"></div>
+    <div *ngIf="crud != 'Details'">
+      <button class="btn custom-back z-depth" [mat-dialog-close]>Skip</button>
+      <button class="btn btn-custom-primary trigger z-depth mr-2" [mat-dialog-close] (click)="submitForm()" cdkFocusInitial>Submit</button>
+    </div>
+    
+  </div>
